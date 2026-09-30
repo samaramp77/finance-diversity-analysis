@@ -1,0 +1,850 @@
+{
+  "dataset": "EEOC EEO-1 Finance and Insurance workforce data, 2014\u20132023",
+  "source": "U.S. Equal Employment Opportunity Commission EEO-1 Public Use Files",
+  "source_url": "https://www.eeoc.gov/data/eeo-1-employer-information-report-statistics",
+  "methodology_url": "https://www.eeoc.gov/sites/default/files/2020-11/PUF%20Data%20Download%20User%20Guide.pdf",
+  "row_definition": "One row is one state \u00d7 year \u00d7 job category \u00d7 race/ethnicity \u00d7 sex aggregate.",
+  "years": [
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "row_count": 71400,
+  "state_count": 51,
+  "job_count": 10,
+  "race_count": 7,
+  "column_count": 14,
+  "year_rows": [
+    {
+      "year": 2014,
+      "finance_total": 2964767,
+      "women": 1751283,
+      "women_share": 59.07,
+      "black_women": 293284,
+      "black_women_share": 9.89,
+      "black_women_leaders": 21687,
+      "black_women_leader_share": 4.7,
+      "senior_total": 461291
+    },
+    {
+      "year": 2015,
+      "finance_total": 3062249,
+      "women": 1817914,
+      "women_share": 59.37,
+      "black_women": 306238,
+      "black_women_share": 10.0,
+      "black_women_leaders": 22750,
+      "black_women_leader_share": 5.32,
+      "senior_total": 427323
+    },
+    {
+      "year": 2016,
+      "finance_total": 3192111,
+      "women": 1913912,
+      "women_share": 59.96,
+      "black_women": 323749,
+      "black_women_share": 10.14,
+      "black_women_leaders": 23182,
+      "black_women_leader_share": 4.87,
+      "senior_total": 475692
+    },
+    {
+      "year": 2017,
+      "finance_total": 3261581,
+      "women": 1917271,
+      "women_share": 58.78,
+      "black_women": 334408,
+      "black_women_share": 10.25,
+      "black_women_leaders": 24349,
+      "black_women_leader_share": 4.95,
+      "senior_total": 491793
+    },
+    {
+      "year": 2018,
+      "finance_total": 3347552,
+      "women": 1963019,
+      "women_share": 58.64,
+      "black_women": 336765,
+      "black_women_share": 10.06,
+      "black_women_leaders": 24759,
+      "black_women_leader_share": 4.42,
+      "senior_total": 559960
+    },
+    {
+      "year": 2019,
+      "finance_total": 3525252,
+      "women": 2059175,
+      "women_share": 58.41,
+      "black_women": 359708,
+      "black_women_share": 10.2,
+      "black_women_leaders": 26680,
+      "black_women_leader_share": 4.75,
+      "senior_total": 561367
+    },
+    {
+      "year": 2020,
+      "finance_total": 3455379,
+      "women": 2015106,
+      "women_share": 58.32,
+      "black_women": 357717,
+      "black_women_share": 10.35,
+      "black_women_leaders": 27275,
+      "black_women_leader_share": 5.13,
+      "senior_total": 531939
+    },
+    {
+      "year": 2021,
+      "finance_total": 3871262,
+      "women": 2258858,
+      "women_share": 58.35,
+      "black_women": 374746,
+      "black_women_share": 9.68,
+      "black_women_leaders": 28558,
+      "black_women_leader_share": 4.32,
+      "senior_total": 660951
+    },
+    {
+      "year": 2022,
+      "finance_total": 5216772,
+      "women": 3041451,
+      "women_share": 58.3,
+      "black_women": 487290,
+      "black_women_share": 9.34,
+      "black_women_leaders": 42581,
+      "black_women_leader_share": 4.45,
+      "senior_total": 957439
+    },
+    {
+      "year": 2023,
+      "finance_total": 5068199,
+      "women": 2996352,
+      "women_share": 59.12,
+      "black_women": 475193,
+      "black_women_share": 9.38,
+      "black_women_leaders": 44236,
+      "black_women_leader_share": 4.81,
+      "senior_total": 919648
+    }
+  ],
+  "job_sex": [
+    {
+      "job": "Senior officials and managers",
+      "female": 25131,
+      "male": 47657,
+      "total": 72788,
+      "female_share": 34.53
+    },
+    {
+      "job": "Professionals",
+      "female": 1058992,
+      "male": 995782,
+      "total": 2054774,
+      "female_share": 51.54
+    },
+    {
+      "job": "Technicians",
+      "female": 28057,
+      "male": 23325,
+      "total": 51382,
+      "female_share": 54.6
+    },
+    {
+      "job": "Sales workers",
+      "female": 180905,
+      "male": 213447,
+      "total": 394352,
+      "female_share": 45.87
+    },
+    {
+      "job": "Administrative support",
+      "female": 1263849,
+      "male": 368407,
+      "total": 1632256,
+      "female_share": 77.43
+    },
+    {
+      "job": "Craft workers",
+      "female": 295,
+      "male": 909,
+      "total": 1204,
+      "female_share": 24.5
+    },
+    {
+      "job": "Operatives",
+      "female": 1913,
+      "male": 2389,
+      "total": 4302,
+      "female_share": 44.47
+    },
+    {
+      "job": "Laborers and helpers",
+      "female": 489,
+      "male": 1328,
+      "total": 1817,
+      "female_share": 26.91
+    },
+    {
+      "job": "Service workers",
+      "female": 6106,
+      "male": 2358,
+      "total": 8464,
+      "female_share": 72.14
+    },
+    {
+      "job": "Mid-level officials and managers",
+      "female": 430615,
+      "male": 416245,
+      "total": 846860,
+      "female_share": 50.85
+    }
+  ],
+  "race_sex": [
+    {
+      "race": "White",
+      "sex": "Male",
+      "employees": 1345482
+    },
+    {
+      "race": "White",
+      "sex": "Female",
+      "employees": 1749191
+    },
+    {
+      "race": "Black or African American",
+      "sex": "Male",
+      "employees": 175015
+    },
+    {
+      "race": "Black or African American",
+      "sex": "Female",
+      "employees": 475193
+    },
+    {
+      "race": "Hispanic",
+      "sex": "Male",
+      "employees": 227125
+    },
+    {
+      "race": "Hispanic",
+      "sex": "Female",
+      "employees": 418924
+    },
+    {
+      "race": "Asian",
+      "sex": "Male",
+      "employees": 259499
+    },
+    {
+      "race": "Asian",
+      "sex": "Female",
+      "employees": 245745
+    },
+    {
+      "race": "American Indian or Alaska Native",
+      "sex": "Male",
+      "employees": 5784
+    },
+    {
+      "race": "American Indian or Alaska Native",
+      "sex": "Female",
+      "employees": 12308
+    },
+    {
+      "race": "Native Hawaiian or Other Pacific Islander",
+      "sex": "Male",
+      "employees": 5817
+    },
+    {
+      "race": "Native Hawaiian or Other Pacific Islander",
+      "sex": "Female",
+      "employees": 10045
+    },
+    {
+      "race": "Two or more races",
+      "sex": "Male",
+      "employees": 53125
+    },
+    {
+      "race": "Two or more races",
+      "sex": "Female",
+      "employees": 84946
+    }
+  ],
+  "leadership": [
+    {
+      "race": "White",
+      "sex": "Male",
+      "employees": 336213
+    },
+    {
+      "race": "White",
+      "sex": "Female",
+      "employees": 312929
+    },
+    {
+      "race": "Black or African American",
+      "sex": "Male",
+      "employees": 24942
+    },
+    {
+      "race": "Black or African American",
+      "sex": "Female",
+      "employees": 44236
+    },
+    {
+      "race": "Hispanic",
+      "sex": "Male",
+      "employees": 33622
+    },
+    {
+      "race": "Hispanic",
+      "sex": "Female",
+      "employees": 45953
+    },
+    {
+      "race": "Asian",
+      "sex": "Male",
+      "employees": 59113
+    },
+    {
+      "race": "Asian",
+      "sex": "Female",
+      "employees": 40198
+    },
+    {
+      "race": "American Indian or Alaska Native",
+      "sex": "Male",
+      "employees": 826
+    },
+    {
+      "race": "American Indian or Alaska Native",
+      "sex": "Female",
+      "employees": 1327
+    },
+    {
+      "race": "Native Hawaiian or Other Pacific Islander",
+      "sex": "Male",
+      "employees": 1082
+    },
+    {
+      "race": "Native Hawaiian or Other Pacific Islander",
+      "sex": "Female",
+      "employees": 1145
+    },
+    {
+      "race": "Two or more races",
+      "sex": "Male",
+      "employees": 8104
+    },
+    {
+      "race": "Two or more races",
+      "sex": "Female",
+      "employees": 9958
+    }
+  ],
+  "states": [
+    {
+      "state": "Mississippi",
+      "region": "South",
+      "finance_total": 23220,
+      "women_share": 71.98,
+      "black_women_share": 22.82,
+      "black_women_leader_share": 12.61,
+      "establishments": 1774
+    },
+    {
+      "state": "Alabama",
+      "region": "South",
+      "finance_total": 78394,
+      "women_share": 59.36,
+      "black_women_share": 22.47,
+      "black_women_leader_share": 9.68,
+      "establishments": 3217
+    },
+    {
+      "state": "Louisiana",
+      "region": "South",
+      "finance_total": 38243,
+      "women_share": 72.98,
+      "black_women_share": 22.22,
+      "black_women_leader_share": 12.78,
+      "establishments": 2795
+    },
+    {
+      "state": "Georgia",
+      "region": "South",
+      "finance_total": 156437,
+      "women_share": 61.82,
+      "black_women_share": 22.0,
+      "black_women_leader_share": 12.32,
+      "establishments": 5245
+    },
+    {
+      "state": "South Carolina",
+      "region": "South",
+      "finance_total": 58674,
+      "women_share": 67.3,
+      "black_women_share": 21.92,
+      "black_women_leader_share": 10.47,
+      "establishments": 3186
+    },
+    {
+      "state": "Virginia",
+      "region": "South",
+      "finance_total": 149754,
+      "women_share": 61.1,
+      "black_women_share": 15.23,
+      "black_women_leader_share": 7.75,
+      "establishments": 4121
+    },
+    {
+      "state": "District of Columbia",
+      "region": "South",
+      "finance_total": 16696,
+      "women_share": 54.31,
+      "black_women_share": 14.96,
+      "black_women_leader_share": 9.84,
+      "establishments": 486
+    },
+    {
+      "state": "Maryland",
+      "region": "South",
+      "finance_total": 67487,
+      "women_share": 54.92,
+      "black_women_share": 14.22,
+      "black_women_leader_share": 9.06,
+      "establishments": 2599
+    },
+    {
+      "state": "North Carolina",
+      "region": "South",
+      "finance_total": 195818,
+      "women_share": 55.31,
+      "black_women_share": 13.63,
+      "black_women_leader_share": 7.33,
+      "establishments": 5622
+    },
+    {
+      "state": "Tennessee",
+      "region": "South",
+      "finance_total": 114928,
+      "women_share": 66.72,
+      "black_women_share": 13.33,
+      "black_women_leader_share": 6.43,
+      "establishments": 4212
+    },
+    {
+      "state": "Delaware",
+      "region": "South",
+      "finance_total": 40200,
+      "women_share": 54.13,
+      "black_women_share": 13.21,
+      "black_women_leader_share": 6.72,
+      "establishments": 628
+    },
+    {
+      "state": "Florida",
+      "region": "South",
+      "finance_total": 326360,
+      "women_share": 61.32,
+      "black_women_share": 12.25,
+      "black_women_leader_share": 5.91,
+      "establishments": 11525
+    },
+    {
+      "state": "Texas",
+      "region": "South",
+      "finance_total": 477964,
+      "women_share": 59.2,
+      "black_women_share": 11.12,
+      "black_women_leader_share": 5.99,
+      "establishments": 16110
+    },
+    {
+      "state": "Michigan",
+      "region": "Midwest",
+      "finance_total": 128602,
+      "women_share": 61.13,
+      "black_women_share": 10.62,
+      "black_women_leader_share": 5.69,
+      "establishments": 4707
+    },
+    {
+      "state": "Arkansas",
+      "region": "South",
+      "finance_total": 27728,
+      "women_share": 65.14,
+      "black_women_share": 10.53,
+      "black_women_leader_share": 5.26,
+      "establishments": 1736
+    },
+    {
+      "state": "Kentucky",
+      "region": "South",
+      "finance_total": 87989,
+      "women_share": 67.34,
+      "black_women_share": 10.18,
+      "black_women_leader_share": 4.61,
+      "establishments": 2451
+    },
+    {
+      "state": "Missouri",
+      "region": "Midwest",
+      "finance_total": 138333,
+      "women_share": 60.81,
+      "black_women_share": 9.78,
+      "black_women_leader_share": 4.6,
+      "establishments": 4130
+    },
+    {
+      "state": "Nevada",
+      "region": "West",
+      "finance_total": 33499,
+      "women_share": 66.74,
+      "black_women_share": 9.3,
+      "black_women_leader_share": 4.53,
+      "establishments": 1418
+    },
+    {
+      "state": "Indiana",
+      "region": "Midwest",
+      "finance_total": 78355,
+      "women_share": 65.07,
+      "black_women_share": 8.87,
+      "black_women_leader_share": 3.94,
+      "establishments": 3950
+    },
+    {
+      "state": "Minnesota",
+      "region": "Midwest",
+      "finance_total": 203840,
+      "women_share": 64.62,
+      "black_women_share": 8.87,
+      "black_women_leader_share": 3.1,
+      "establishments": 2807
+    },
+    {
+      "state": "Ohio",
+      "region": "Midwest",
+      "finance_total": 208899,
+      "women_share": 58.76,
+      "black_women_share": 8.62,
+      "black_women_leader_share": 4.13,
+      "establishments": 5831
+    },
+    {
+      "state": "Pennsylvania",
+      "region": "Northeast",
+      "finance_total": 225416,
+      "women_share": 59.12,
+      "black_women_share": 8.26,
+      "black_women_leader_share": 4.06,
+      "establishments": 6086
+    },
+    {
+      "state": "Illinois",
+      "region": "Midwest",
+      "finance_total": 296285,
+      "women_share": 54.52,
+      "black_women_share": 8.0,
+      "black_women_leader_share": 4.19,
+      "establishments": 6955
+    },
+    {
+      "state": "North Dakota",
+      "region": "Midwest",
+      "finance_total": 15466,
+      "women_share": 69.56,
+      "black_women_share": 7.82,
+      "black_women_leader_share": 0.84,
+      "establishments": 560
+    },
+    {
+      "state": "Kansas",
+      "region": "Midwest",
+      "finance_total": 52547,
+      "women_share": 59.99,
+      "black_women_share": 6.9,
+      "black_women_leader_share": 2.3,
+      "establishments": 1912
+    },
+    {
+      "state": "New Jersey",
+      "region": "Northeast",
+      "finance_total": 157555,
+      "women_share": 50.06,
+      "black_women_share": 6.47,
+      "black_women_leader_share": 3.67,
+      "establishments": 4040
+    },
+    {
+      "state": "Oklahoma",
+      "region": "South",
+      "finance_total": 35431,
+      "women_share": 65.73,
+      "black_women_share": 5.76,
+      "black_women_leader_share": 2.48,
+      "establishments": 2063
+    },
+    {
+      "state": "New York",
+      "region": "Northeast",
+      "finance_total": 454293,
+      "women_share": 49.05,
+      "black_women_share": 5.55,
+      "black_women_leader_share": 2.9,
+      "establishments": 8086
+    },
+    {
+      "state": "Connecticut",
+      "region": "Northeast",
+      "finance_total": 82270,
+      "women_share": 53.79,
+      "black_women_share": 5.24,
+      "black_women_leader_share": 2.31,
+      "establishments": 2179
+    },
+    {
+      "state": "Wisconsin",
+      "region": "Midwest",
+      "finance_total": 100322,
+      "women_share": 61.9,
+      "black_women_share": 4.67,
+      "black_women_leader_share": 1.85,
+      "establishments": 3577
+    },
+    {
+      "state": "Massachusetts",
+      "region": "Northeast",
+      "finance_total": 160798,
+      "women_share": 54.16,
+      "black_women_share": 4.59,
+      "black_women_leader_share": 2.02,
+      "establishments": 3738
+    },
+    {
+      "state": "California",
+      "region": "West",
+      "finance_total": 434125,
+      "women_share": 57.99,
+      "black_women_share": 4.48,
+      "black_women_leader_share": 2.67,
+      "establishments": 14637
+    },
+    {
+      "state": "Nebraska",
+      "region": "Midwest",
+      "finance_total": 43416,
+      "women_share": 57.76,
+      "black_women_share": 3.85,
+      "black_women_leader_share": 1.05,
+      "establishments": 1326
+    },
+    {
+      "state": "Colorado",
+      "region": "West",
+      "finance_total": 81812,
+      "women_share": 54.58,
+      "black_women_share": 3.69,
+      "black_women_leader_share": 1.43,
+      "establishments": 3112
+    },
+    {
+      "state": "Rhode Island",
+      "region": "Northeast",
+      "finance_total": 23279,
+      "women_share": 56.19,
+      "black_women_share": 3.48,
+      "black_women_leader_share": 1.6,
+      "establishments": 557
+    },
+    {
+      "state": "Maine",
+      "region": "Northeast",
+      "finance_total": 21817,
+      "women_share": 62.82,
+      "black_women_share": 3.26,
+      "black_women_leader_share": 0.58,
+      "establishments": 866
+    },
+    {
+      "state": "Washington",
+      "region": "West",
+      "finance_total": 74997,
+      "women_share": 60.68,
+      "black_women_share": 2.71,
+      "black_women_leader_share": 1.25,
+      "establishments": 3924
+    },
+    {
+      "state": "Iowa",
+      "region": "Midwest",
+      "finance_total": 82908,
+      "women_share": 59.19,
+      "black_women_share": 2.65,
+      "black_women_leader_share": 0.89,
+      "establishments": 1943
+    },
+    {
+      "state": "Oregon",
+      "region": "West",
+      "finance_total": 41914,
+      "women_share": 63.44,
+      "black_women_share": 2.57,
+      "black_women_leader_share": 0.9,
+      "establishments": 2161
+    },
+    {
+      "state": "Utah",
+      "region": "West",
+      "finance_total": 58641,
+      "women_share": 53.19,
+      "black_women_share": 2.39,
+      "black_women_leader_share": 0.52,
+      "establishments": 1645
+    },
+    {
+      "state": "Alaska",
+      "region": "West",
+      "finance_total": 5286,
+      "women_share": 65.44,
+      "black_women_share": 2.01,
+      "black_women_leader_share": 2.62,
+      "establishments": 377
+    },
+    {
+      "state": "West Virginia",
+      "region": "South",
+      "finance_total": 9798,
+      "women_share": 72.71,
+      "black_women_share": 1.85,
+      "black_women_leader_share": 0.84,
+      "establishments": 719
+    },
+    {
+      "state": "New Mexico",
+      "region": "West",
+      "finance_total": 15322,
+      "women_share": 70.98,
+      "black_women_share": 1.72,
+      "black_women_leader_share": 1.13,
+      "establishments": 813
+    },
+    {
+      "state": "New Hampshire",
+      "region": "Northeast",
+      "finance_total": 19360,
+      "women_share": 57.28,
+      "black_women_share": 1.6,
+      "black_women_leader_share": 0.91,
+      "establishments": 884
+    },
+    {
+      "state": "Idaho",
+      "region": "West",
+      "finance_total": 19288,
+      "women_share": 67.42,
+      "black_women_share": 1.35,
+      "black_women_leader_share": 0.37,
+      "establishments": 1283
+    },
+    {
+      "state": "South Dakota",
+      "region": "Midwest",
+      "finance_total": 15905,
+      "women_share": 66.05,
+      "black_women_share": 1.23,
+      "black_women_leader_share": 0.5,
+      "establishments": 640
+    },
+    {
+      "state": "Vermont",
+      "region": "Northeast",
+      "finance_total": 6485,
+      "women_share": 66.46,
+      "black_women_share": 0.86,
+      "black_women_leader_share": 0.3,
+      "establishments": 401
+    },
+    {
+      "state": "Hawaii",
+      "region": "West",
+      "finance_total": 12346,
+      "women_share": 64.98,
+      "black_women_share": 0.75,
+      "black_women_leader_share": 0.29,
+      "establishments": 610
+    },
+    {
+      "state": "Montana",
+      "region": "West",
+      "finance_total": 10518,
+      "women_share": 68.4,
+      "black_women_share": 0.72,
+      "black_women_leader_share": 0.0,
+      "establishments": 692
+    },
+    {
+      "state": "Arizona",
+      "region": "West",
+      "finance_total": 143826,
+      "women_share": 56.16,
+      "black_women_share": 0.71,
+      "black_women_leader_share": 3.05,
+      "establishments": 3144
+    },
+    {
+      "state": "Wyoming",
+      "region": "West",
+      "finance_total": 3521,
+      "women_share": 72.48,
+      "black_women_share": 0.0,
+      "black_women_leader_share": 0.0,
+      "establishments": 358
+    }
+  ],
+  "regions": [
+    {
+      "region": "South",
+      "finance_total": 1905121,
+      "women_share": 61.02,
+      "black_women_share": 14.07,
+      "black_women_leader_share": 7.36
+    },
+    {
+      "region": "Midwest",
+      "finance_total": 1364878,
+      "women_share": 59.99,
+      "black_women_share": 7.88,
+      "black_women_leader_share": 3.6
+    },
+    {
+      "region": "Northeast",
+      "finance_total": 1151273,
+      "women_share": 52.86,
+      "black_women_share": 5.87,
+      "black_women_leader_share": 2.93
+    },
+    {
+      "region": "West",
+      "finance_total": 935095,
+      "women_share": 58.59,
+      "black_women_share": 3.41,
+      "black_women_leader_share": 2.22
+    }
+  ],
+  "latest_year": 2023,
+  "latest_total": 5068199,
+  "latest_women_share": 59.12,
+  "latest_black_women_share": 9.38,
+  "latest_black_women_leader_share": 4.81,
+  "latest_female_leadership_share": 49.56,
+  "latest_leadership_total": 919648
+}
