@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Filter and explore race and gender representation in finance and insurance.">
+  <title>Explore the Finance Ladder — interactive dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="index.html"><span class="brand-mark">$</span> The Finance Ladder</a>
+    <div class="nav-links"><a href="index.html">Report</a><a class="active" href="dashboard.html">Dashboard</a><span class="nav-pill">click the bars</span></div>
+  </nav>
+
+  <main class="page-shell">
+    <header class="dashboard-hero">
+      <p class="eyebrow">Interactive data studio</p>
+      <h1>Build your own view of the ladder.</h1>
+      <p>Filter the public-use file by place, year, job category, race, and sex. Then switch the measure and breakdown to see how the story changes. Every chart below is calculated in your browser from the tidy CSV.</p>
+    </header>
+
+    <section class="control-panel" aria-label="Dashboard controls">
+      <div class="control-top"><div><p class="eyebrow">Choose a lens</p><h2>Filter the workforce</h2></div><button class="reset-button" id="resetFilters" type="button">Reset everything ↺</button></div>
+      <div class="filter-grid">
+        <div class="field"><label for="yearFilter">Year</label><select id="yearFilter"><option value="">All years</option></select></div>
+        <div class="field"><label for="stateFilter">State</label><select id="stateFilter"><option value="">All states</option></select></div>
+        <div class="field"><label for="regionFilter">Region</label><select id="regionFilter"><option value="">All regions</option></select></div>
+        <div class="field"><label for="jobFilter">Job category</label><select id="jobFilter"><option value="">All job categories</option></select></div>
+        <div class="field"><label for="raceFilter">Race / ethnicity</label><select id="raceFilter"><option value="">All groups</option></select></div>
+        <div class="field"><label for="sexFilter">Sex</label><select id="sexFilter"><option value="">All sexes</option></select></div>
+      </div>
+      <div class="switch-row">
+        <div class="switch-group"><span>Measure</span><div class="switch" id="measureSwitch" role="group" aria-label="Chart measure"><button type="button" data-measure="employees" class="active">Employees</button><button type="button" data-measure="share_view">Share of view</button><button type="button" data-measure="women_share">Women %</button><button type="button" data-measure="black_women_share">Black women %</button><button type="button" data-measure="leadership_share">Leadership %</button></div></div>
+        <div class="switch-group"><span>Break down by</span><div class="switch" id="breakdownSwitch" role="group" aria-label="Chart breakdown"><button type="button" data-breakdown="job_category" class="active">Job</button><button type="button" data-breakdown="state">State</button><button type="button" data-breakdown="year">Year</button><button type="button" data-breakdown="race_ethnicity">Race</button><button type="button" data-breakdown="sex">Sex</button><button type="button" data-breakdown="region">Region</button></div></div>
+      </div>
+      <p class="status-line" id="statusLine">Loading the finance workforce…</p>
+    </section>
+
+    <section class="dashboard-kpis" aria-label="Current view summary">
+      <article class="kpi"><div class="kpi-value" id="kpiEmployees">—</div><div class="kpi-label">employees in view</div></article>
+      <article class="kpi"><div class="kpi-value" id="kpiWomen">—</div><div class="kpi-label">women’s share of view</div></article>
+      <article class="kpi"><div class="kpi-value" id="kpiBlackWomen">—</div><div class="kpi-label">Black women’s share of view</div></article>
+      <article class="kpi"><div class="kpi-value" id="kpiLeadership">—</div><div class="kpi-label">leadership share of view</div></article>
+    </section>
+
+    <section class="ladder-lab" aria-label="Career ladder interaction">
+      <div class="ladder-copy"><div><p class="eyebrow">The ladder lab</p><h2>Click a rung.<br>See the mix.</h2><p>Each rung is a job category. Its height reflects the female share in your current filtered view. Select a rung to filter the dashboard to that category.</p></div><p class="ladder-note" id="ladderMessage">The stage will update as you explore.</p></div>
+      <div class="ladder-stage" id="ladderStage"><div class="loading">Loading ladder…</div></div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="dashboard-card wide"><h2 id="primaryTitle">Employees by job category</h2><p class="subhead" id="primarySubhead">Click any bar to apply that filter.</p><div class="chart-large" id="primaryChart"><div class="loading">Loading chart…</div></div></article>
+      <article class="dashboard-card"><h2>Two signals over time</h2><p class="subhead">Women’s share and Black women’s share in the current place / job / demographic scope.</p><div class="chart-large" id="trendChart"><div class="loading">Loading chart…</div></div><div class="legend"><span><i class="legend-dot" style="background:var(--emerald)"></i>women’s share</span><span><i class="legend-dot" style="background:var(--coral)"></i>Black women’s share</span></div></article>
+      <article class="dashboard-card"><h2>Where women are concentrated</h2><p class="subhead">Female share by job category, independent of the main chart’s breakdown.</p><div class="chart-large" id="compositionChart"><div class="loading">Loading chart…</div></div></article>
+      <article class="dashboard-card wide"><h2>Race / ethnicity composition</h2><p class="subhead">The measure switch controls this view too. Use the filters to compare the shape of the workforce.</p><div class="chart-large" id="raceChart"><div class="loading">Loading chart…</div></div></article>
+      <article class="dashboard-card wide"><h2>Numbers behind the view</h2><p class="subhead">The table summarizes the current filters by year and job category. It is capped at 200 rows for a responsive browser experience.</p><div class="table-wrap"><table><thead><tr><th>Year</th><th>Job category</th><th>Employees</th><th>Women %</th><th>Black women %</th><th>Leadership %</th></tr></thead><tbody id="dataTable"><tr><td colspan="6">Loading…</td></tr></tbody></table></div><p class="table-note" id="tableNote"></p></article>
+    </section>
+
+    <footer class="footer">Dashboard calculations run locally in your browser. Return to the <a href="index.html">report</a> for the findings and methodology.</footer>
+  </main>
+  <script src="dashboard.js" defer></script>
+</body>
+</html>
