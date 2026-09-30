@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A visual analysis of race and gender representation in finance and insurance.">
+  <title>The Finance Ladder — race and gender in finance</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="index.html"><span class="brand-mark">$</span> The Finance Ladder</a>
+    <div class="nav-links"><a class="active" href="index.html">Report</a><a href="dashboard.html">Dashboard</a><span class="nav-pill">EEO-1 · 2014–2023</span></div>
+  </nav>
+
+  <main class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Race, gender, and the climb</p>
+        <h1>Who gets to move <em>up?</em></h1>
+        <p class="hero-copy">A decade of public workforce data reveals a finance industry where women are a majority overall—but representation changes as the job ladder gets taller. This project looks closely at Black women’s place in that climb, state by state and role by role.</p>
+        <div class="byline"><span>Prepared by <strong>Samara Pendergrass</strong></span><span>Finance &amp; Insurance · 2014–2023</span><span>EEOC EEO-1 public-use data</span></div>
+        <div class="button-row"><a class="button" href="dashboard.html">Explore the ladder <span aria-hidden="true">↗</span></a><a class="button secondary" href="#methodology">Read the method</a></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a career ladder built from coins">
+        <svg viewBox="0 0 470 355" role="img">
+          <path class="art-line" d="M57 316 H420 M73 302 L128 245 L186 275 L252 178 L314 213 L392 86" stroke-width="5"></path>
+          <path class="art-line" d="M392 86 L374 105 M392 86 L368 87" stroke-width="5"></path>
+          <rect class="art-fill" x="52" y="282" width="62" height="34" rx="10"></rect>
+          <rect class="art-fill" x="112" y="246" width="62" height="34" rx="10"></rect>
+          <rect class="art-fill" x="173" y="211" width="62" height="34" rx="10"></rect>
+          <rect class="art-fill" x="235" y="177" width="62" height="34" rx="10"></rect>
+          <rect class="art-fill" x="298" y="143" width="62" height="34" rx="10"></rect>
+          <rect class="art-fill" x="361" y="108" width="62" height="34" rx="10"></rect>
+          <circle class="art-coral" cx="123" cy="312" r="22"></circle><circle class="art-gold" cx="174" cy="312" r="22"></circle><circle class="art-coral" cx="225" cy="312" r="22"></circle>
+          <path class="art-line" d="M92 63 C122 28 164 49 184 30 C211 4 245 37 264 59 C292 90 330 44 352 67 C374 91 405 80 421 57" opacity=".65"></path>
+          <text x="56" y="345">representation is a pathway</text>
+          <text x="319" y="34">finance / 2023</text>
+        </svg>
+      </div>
+    </header>
+
+    <section class="headline-grid" aria-label="Headline numbers">
+      <article class="stat-card"><div class="stat-value" data-stat="women_share">—</div><div class="stat-label">women’s share of Finance &amp; Insurance workers</div></article>
+      <article class="stat-card"><div class="stat-value" data-stat="black_women_share">—</div><div class="stat-label">Black women’s share of the finance workforce</div></article>
+      <article class="stat-card"><div class="stat-value" data-stat="black_women_leader_share">—</div><div class="stat-label">Black women’s share of senior and mid-level leadership</div></article>
+      <article class="stat-card"><div class="stat-value" data-stat="latest_total">—</div><div class="stat-label">aggregate employees represented in 2023</div></article>
+    </section>
+
+    <section class="intro"><div><p class="eyebrow">The short version</p><h2>The ladder is not one story.</h2></div><p>Representation at the bottom and middle of an industry can look very different from representation at the top. These data do not follow individual women through a career, and they do not measure pay. They do let us ask a clear question: who is present in which job categories, in which places, and how does that mix change over time?</p></section>
+
+    <section class="story-section" id="finding-1"><div class="story-text"><div class="story-index">01 / THE BIG PICTURE</div><h2>Women are the majority overall, but leadership is nearly even.</h2><p>In 2023, women made up <strong>59.12%</strong> of the non-suppressed finance and insurance workforce counts. In the combined senior and mid-level officials/managers categories, women made up <strong>49.56%</strong>. The difference is not a claim about a single company; it is a national aggregate across the tidy public-use file.</p></div><figure class="chart-card"><div class="chart-title"><strong>Women’s share, by rung</strong><span>2023</span></div><div class="chart-wrap" id="genderLadderChart"></div></figure></section>
+
+    <section class="story-section reverse" id="finding-2"><div class="story-text"><div class="story-index">02 / BLACK WOMEN</div><h2>Black women’s presence is cut roughly in half at the leadership rung.</h2><p>Black women represented <strong>9.38%</strong> of the non-suppressed finance workforce counts in 2023, but <strong>4.81%</strong> of the non-suppressed senior and mid-level leadership counts. That gap is the central finding of this project: a workforce can be diverse in total while the top of the ladder remains less representative.</p><p class="aside-note">The EEOC file reports aggregate counts with disclosure protection. These are representation measures, not individual-level career outcomes.</p></div><figure class="chart-card"><div class="chart-title"><strong>Black women’s share of the workforce vs. leadership</strong><span>2023</span></div><div class="chart-wrap" id="blackWomenChart"></div></figure></section>
+
+    <section class="story-section" id="finding-3"><div class="story-text"><div class="story-index">03 / JOB CATEGORIES</div><h2>The pipeline changes shape at every level.</h2><p>Women represented <strong>77.43%</strong> of administrative-support workers, <strong>51.54%</strong> of professionals, and <strong>34.53%</strong> of senior officials and managers. Looking only at “women in finance” hides these distinct job-category patterns.</p></div><figure class="chart-card"><div class="chart-title"><strong>Female share by job category</strong><span>2023 finance workforce</span></div><div class="chart-wrap" id="jobGenderChart"></div></figure></section>
+
+    <section class="story-section reverse" id="finding-4"><div class="story-text"><div class="story-index">04 / TIME</div><h2>Leadership representation moved within a narrow band across the decade.</h2><p>Black women’s share of non-suppressed senior and mid-level leadership counts was <strong>4.70%</strong> in 2014 and <strong>4.81%</strong> in 2023, with a low of <strong>4.32%</strong> in 2021 and a high of <strong>5.32%</strong> in 2015. Their overall workforce share stayed close to 10%. The jump in the total workforce series after 2021 is visible and should be treated as a data-coverage or reporting change, not automatically as a sudden hiring wave.</p></div><figure class="chart-card"><div class="chart-title"><strong>Black women through time</strong><span>workforce vs. leadership</span></div><div class="chart-wrap" id="timeChart"></div><div class="legend"><span><i class="legend-dot" style="background:var(--emerald)"></i>workforce share</span><span><i class="legend-dot" style="background:var(--coral)"></i>leadership share</span></div></figure></section>
+
+    <section class="story-section" id="finding-5"><div class="story-text"><div class="story-index">05 / REGIONS</div><h2>The South has the highest Black-women representation in this file.</h2><p>In 2023, Black women represented <strong>14.07%</strong> of the South’s finance workforce, compared with <strong>3.41%</strong> in the West. Regional context matters because finance employment is connected to population, industry mix, and where large employers are located.</p></div><figure class="chart-card"><div class="chart-title"><strong>Black women’s share by region</strong><span>2023</span></div><div class="chart-wrap" id="regionChart"></div></figure></section>
+
+    <section class="story-section reverse" id="finding-6"><div class="story-text"><div class="story-index">06 / THE TOP OF THE LADDER</div><h2>White employees account for 70.59% of leadership in 2023.</h2><p>White men represented <strong>36.56%</strong> and White women <strong>34.03%</strong> of the non-suppressed leadership aggregate. Black women represented <strong>4.81%</strong>. This is a composition story: the categories show who occupies leadership, not why the pattern exists.</p></div><figure class="chart-card"><div class="chart-title"><strong>Leadership composition</strong><span>senior + mid-level officials/managers</span></div><div class="chart-wrap" id="leadershipChart"></div></figure></section>
+
+    <section class="story-section" id="finding-7"><div class="story-text"><div class="story-index">07 / PLACE</div><h2>State context can change the picture completely.</h2><p>Black women’s share ranges from <strong>22.82%</strong> in Mississippi to <strong>0.00%</strong> in Wyoming in the 2023 state-level file. These extremes should be read alongside the number of establishments and the size of the finance workforce; small-state percentages can be volatile.</p></div><figure class="chart-card"><div class="chart-title"><strong>State range, top and bottom</strong><span>Black women’s share · 2023</span></div><div class="chart-wrap" id="stateChart"></div></figure></section>
+
+    <section class="story-section reverse" id="finding-8"><div class="story-text"><div class="story-index">08 / SCOPE</div><h2>A decade gives us a pattern, not a perfect before-and-after.</h2><p>The file contains <strong>71,400</strong> tidy rows representing 51 states, 10 job categories, 7 race/ethnicity categories, 2 sex categories, and 10 years. The 2022–2023 totals are higher than prior years, so the most defensible comparisons are within a year, within a job category, and alongside the documented coverage change.</p></div><figure class="chart-card"><div class="chart-title"><strong>Aggregate finance workforce represented</strong><span>annual totals in the source file</span></div><div class="chart-wrap" id="scopeChart"></div></figure></section>
+
+    <section class="methodology" id="methodology"><p class="eyebrow">Data notes</p><h2>What this project counts—and what it does not.</h2><div class="methodology-grid"><div><p>This project uses the official <a class="source-link" href="https://www.eeoc.gov/data/eeo-1-employer-information-report-statistics" target="_blank" rel="noreferrer">EEOC EEO-1 Public Use Files</a> for 2014–2023. The EEO-1 collection covers private employers with 100 or more employees and certain federal contractors. The public files are aggregate and confidentiality-protected.</p><p>One published row is one state × year × job category × race/ethnicity × sex aggregate for NAICS sector 52, Finance and Insurance. I keep the 51 state-level finance-sector records for each year, reshape the demographic/job columns into tidy rows, and drop all other geography levels, industries, and aggregate race/sex rows. No individual employee records appear in the website.</p></div><ul><li><strong>Annual, job, and dashboard shares</strong> use the non-suppressed <code>employee_count</code> values in the tidy file as numerator and denominator.</li><li><strong>State and region Black-women shares</strong> use the Black-women count over the source row’s one unique <code>finance_total</code> all-workforce denominator; this limits suppression-driven state distortions.</li><li><strong>Leadership</strong> = Senior officials and managers + Mid-level officials and managers.</li><li><strong>Leadership composition</strong> = each race/sex leadership count ÷ all non-suppressed leadership counts × 100.</li><li>Blank/suppressed source cells remain blank and are excluded from tidy totals.</li></ul></div></section>
+
+    <footer class="footer">Built as a reproducible public-data analysis. Continue the exploration on the <a href="dashboard.html">interactive dashboard</a>.</footer>
+  </main>
+  <script src="report.js" defer></script>
+</body>
+</html>
