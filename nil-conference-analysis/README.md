@@ -1,45 +1,41 @@
 # The D-I NIL Map
 
-An interactive Division I-only comparison of modeled NIL roster-market estimates across all 32 conferences, with a focused SEC vs. Big Ten vs. Big 12 vs. ACC comparison.
-
-## Story
-
-The project asks: **Is the Division I NIL market concentrated in a few conferences, and does the answer change when we compare total market with the typical program?** The 2026 estimate snapshot places the SEC first by combined market, the Big Ten second, and the Power 4 at roughly two-thirds of the modeled D-I market.
+An interactive Division I-only comparison of modeled NIL roster-market estimates across all 32 conferences, with a focused SEC vs. Big Ten vs. Big 12 vs. ACC comparison and a separate historical layer of public NCAA NIL disclosure snapshots.
 
 ## Files
 
-- `index.html` — single-page narrative report, interactive playground, calculator, position lens, and Power 4 school explorer.
-- `dashboard.html` — legacy entry point that redirects to the interactive section on `index.html`.
-- `report.js` — report charts and headline values.
-- `dashboard.js` — filterable dashboard logic.
-- `styles.css` — shared visual system.
-- `data/division1_market.json` — Division I conference estimates and Power 4 sport mix.
-- `data/nil_summary.json` — separate NCAA NIL Assist context snapshot retained from the earlier version; it is not mixed into the modeled conference figures.
-- `scripts/build_snapshot.py` — validates the D-I estimate data.
+- `index.html` — the narrative report page, author line, headline numbers, eight chart-backed findings, and the closing data/method section.
+- `dashboard.html` — the standalone interactive dashboard linked from the report page.
+- `dashboard.js` — loads the data in the browser, applies the time, group, measure, breakdown, and row-count filters, calculates summaries, renders four filter-responsive charts, renders the table, and resets every dashboard filter.
+- `report.js` — calculates report headline values and renders the report charts in the browser.
+- `styles.css` — shared layout, typography, colors, responsive styles, and chart styling used by both pages.
+- `data/division1_market.json` — 2026 modeled Division I conference estimates, Power 4 sport mix, 68 Power 4 school estimates, FBS football position context, and player-builder baselines.
+- `data/nil_summary.json` — captured NCAA NIL Assist disclosure snapshot with 2024 comparison, 2025 segments, and sport counts.
+- `data/nil_data.js` — browser-ready fallback copy of `division1_market.json` so the interactive site can load reliably on GitHub Pages.
+- `data/nil_history.js` — browser-ready fallback copy of the historical disclosure rows used by the report and dashboard.
+- `scripts/build_snapshot.py` — validates conference totals, program counts, Power 4 rows, sport mix totals, position counts, and school totals.
 
-## Source and scope
+## Data and scope
 
-The primary conference-comparison source is [The Sideline NIL by Conference directory](https://thesideline.co/nil-tracker/conferences/), captured September 30, 2026. The 32 conference rows used here represent 354 Division I programs and 49,842 athletes. The source describes its numbers as estimates that combine public valuation benchmarks with model estimates.
+The modeled conference layer uses [The Sideline NIL by Conference directory](https://thesideline.co/nil-tracker/conferences/), captured September 30, 2026. Its 32 conference rows represent 354 Division I programs and 49,842 athletes. The source describes the values as estimates that combine public valuation benchmarks with model estimates.
 
-“Combined market” is the sum of program-level roster estimates within a conference. “Median program” is the middle program estimate within that conference. Power 4 sport categories are football, men’s basketball, women’s basketball, baseball, and the source’s grouped “Everything else.”
+The historical disclosure layer uses the [NCAA NIL Assist public dashboard](https://nilassist.ncaa.org/data-dashboard/). The 2024 snapshot covers January 1 through October 31, 2024, and the 2025 snapshot covers January 1 through July 31, 2025. These are public, de-identified disclosure aggregates, not verified conference payouts or guaranteed athlete pay. Because the date ranges differ, the report labels the comparison as descriptive rather than a complete year-over-year trend.
 
-The position-group drill-down is intentionally narrower. It uses termiNIL’s FBS football position analysis for 14,519 modeled players across 138 FBS programs. It shows estimated market value, mean value, and median value for 15 football position groups. It is not a complete position breakdown for all Division I sports.
+The position-group drill-down uses [termiNIL’s FBS football position analysis](https://www.terminil.com/blog/lowest-nil-value-college-football-roster) for 14,519 modeled players across 138 FBS programs. It is a separate football model, not a complete Division I sport-by-sport salary file.
 
-The dashboard also includes a “Build your player profile” interaction. It combines a sport/position baseline with a transparent conference multiplier based on average roster-market value per program. Football starts from the published FBS position medians; other sports are illustrative comparison baselines and are labeled that way in the interface.
-
-The Power 4 school explorer includes all 68 programs listed across the [SEC](https://thesideline.co/nil-tracker/conferences/sec), [Big Ten](https://thesideline.co/nil-tracker/conferences/big-ten), [ACC](https://thesideline.co/nil-tracker/conferences/acc), and [Big 12](https://thesideline.co/nil-tracker/conferences/big-12) pages. School values are modeled roster-market estimates, not actual payments.
-
-These are not verified contracts, reported salaries, conference distributions, collective budgets, or guaranteed athlete pay. The NCAA NIL Assist dashboard is linked in the report for context, but the NCAA reported disclosure snapshot and these modeled conference estimates are kept separate.
+No conference rows were dropped after validation. The report explains the market totals, medians, shares, changes, sport mix, position shares, and player-builder formula in its closing methodology section.
 
 ## Run locally
+
+From this project folder:
 
 ```bash
 python3 -m http.server 8001
 ```
 
-Then open `http://localhost:8001/nil-conference-analysis/`.
+Then open `http://localhost:8001/` for the report or `http://localhost:8001/dashboard.html` for the dashboard.
 
-Validate the estimate data with:
+Validate the modeled estimate data with:
 
 ```bash
 python3 scripts/build_snapshot.py

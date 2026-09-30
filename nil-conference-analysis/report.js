@@ -1,5 +1,6 @@
 (function () {
 const money = (value) => `$${Number(value).toFixed(value >= 100 ? 1 : 2)}M`;
+const dollars = (value) => `$${Math.round(Number(value)).toLocaleString('en-US')}`;
 const bigMoney = (value) => `$${(Number(value) / 1000).toFixed(2)}B`;
 const integer = (value) => Math.round(value).toLocaleString('en-US');
 const percent = (value) => `${Number(value).toFixed(1)}%`;
@@ -32,6 +33,7 @@ function line(svg, x1, y1, x2, y2, className = '') {
 
 function barChart(target, rows, options = {}) {
   if (!target) return;
+  if (!rows.length) { target.innerHTML = '<div class="chart-empty">No rows are available for this view.</div>'; return; }
   const width = 720; const rowHeight = options.rowHeight || 34; const height = Math.max(250, rows.length * rowHeight + 64);
   const svg = svgFrame(target, width, height); const left = options.left || 160; const right = 86; const top = 28; const plot = width - left - right;
   const max = options.max || Math.max(...rows.map((row) => row.value), 1); const formatter = options.valueFormat || ((value) => value.toLocaleString());
@@ -44,9 +46,10 @@ function barChart(target, rows, options = {}) {
 
 function groupedBarChart(target, rows, series, options = {}) {
   if (!target) return;
-  const width = 720; const rowHeight = options.rowHeight || 54; const height = Math.max(260, rows.length * rowHeight + 64);
-  const svg = svgFrame(target, width, height); const left = options.left || 160; const right = 92; const top = 28; const plot = width - left - right;
+  if (!rows.length) { target.innerHTML = '<div class="chart-empty">No historical rows are available.</div>'; return; }
+  const width = 720; const rowHeight = options.rowHeight || 54; const height = Math.max(260, rows.length * rowHeight + 64); const left = options.left || 160; const right = 92; const top = 28; const plot = width - left - right;
   const max = options.max || Math.max(...rows.flatMap((row) => series.map((item) => row[item.key] || 0)), 1); const formatter = options.valueFormat || ((value) => value.toLocaleString());
+  const svg = svgFrame(target, width, height);
   [0, 0.5, 1].forEach((fraction) => { const x = left + plot * fraction; line(svg, x, top - 12, x, height - 24, 'grid-line'); text(svg, x, 16, formatter(max * fraction), 'axis-label axis-number'); });
   rows.forEach((row, index) => {
     const y = top + index * rowHeight; text(svg, left - 12, y + 25, row.label, 'axis-label axis-left');
@@ -62,13 +65,22 @@ function stackedBarChart(target, rows, keys, options = {}) {
   rows.forEach((row, index) => { const y = top + index * rowHeight; text(svg, left - 12, y + 20, row.label, 'axis-label axis-left'); let cursor = left; keys.forEach((key) => { const value = Number(row[key]) || 0; const widthValue = plot * value / max; rect(svg, cursor, y + 4, widthValue, 22, 'bar', options.colors[key]); if (widthValue > 42) text(svg, cursor + widthValue / 2, y + 20, `${Math.round(value)}%`, 'stack-label'); cursor += widthValue; }); });
 }
 
-function render(data) {
-  const conferences = data.conferences; const byName = Object.fromEntries(conferences.map((row) => [row.conference, row]));
-  const p4 = conferences.filter((row) => row.tier === 'Power 4');
-  setStat('market_total', bigMoney(data.market.total_millions)); setStat('conference_count', integer(data.market.conference_count)); setStat('program_count', integer(data.market.program_count)); setStat('athlete_count', integer(data.market.athlete_count));
-  setStat('p4_share', percent(data.market.p4_share)); setStat('top_conference', conferences[0].conference); setStat('sec_market', money(byName.SEC.market_millions)); setStat('big_ten_market', money(byName['Big Ten'].market_millions)); setStat('big12_market', money(byName['Big 12'].market_millions)); setStat('acc_market', money(byName.ACC.market_millions));
-  setStat('sec_median', money(byName.SEC.median_program_millions)); setStat('big_ten_median', money(byName['Big Ten'].median_program_millions)); setStat('big12_median', money(byName['Big 12'].median_program_millions)); setStat('acc_median', money(byName.ACC.median_program_millions));
-  setStat('sec_edge', percent(100 * (byName.SEC.market_millions / byName['Big Ten'].market_millions - 1)));
+function renderSegmentChart(target, rows) {
+  if (!target) return;
+  target.innerHTML = '<div class="chart-title"><strong>Share of disclosures</strong><span>2025 count</span></div><div class="chart-wrap" data-segment-count></div><div class="chart-title chart-subtitle"><strong>Average disclosed value</strong><span>dollars per disclosure</span></div><div class="chart-wrap" data-segment-average></div>';
+  const total = rows.reduce((sum, row) => sum + row.disclosure_count, 0);
+  barChart(target.querySelector('[data-segment-count]'), rows.map((row) => ({ label: row.group, value: 100 * row.disclosure_count / total, color: row.group === 'Power 4' ? '#1769d5' : row.group === 'Group of 5' ? '#e0ab38' : '#8f70c9' })), { max: 100, valueFormat: percent, left: 175, rowHeight: 42 });
+  barChart(target.querySelector('[data-segment-average]'), rows.map((row) => ({ label: row.group, value: row.average_disclosure_value, color: row.group === 'Power 4' ? '#f26b5e' : '#8f70c9' })), { max: 7000, valueFormat: dollars, left: 175, rowHeight: 42 });
+}
+
+function render(data, history) {
+  const conferences = data.conferences; const byName = Object.fromEntries(conferences.map((row) => [row.conference, row])); const p4 = conferences.filter((row) => row.tier === 'Power 4');
+  const all2024 = history.trend.find((row) => row.year === 2024 && row.group === 'All public disclosures'); const all2025 = history.trend.find((row) => row.year === 2025 && row.group === 'All public disclosures'); const segments = history.segments;
+  setStat('market_total', bigMoney(data.market.total_millions)); setStat('conference_count', integer(data.market.conference_count)); setStat('program_count', integer(data.market.program_count)); setStat('disclosure_count', integer(all2025.disclosure_count));
+  setStat('p4_share', percent(data.market.p4_share)); setStat('sec_market', money(byName.SEC.market_millions)); setStat('big_ten_market', money(byName['Big Ten'].market_millions)); setStat('big12_market', money(byName['Big 12'].market_millions)); setStat('acc_market', money(byName.ACC.market_millions));
+  setStat('sec_median', money(byName.SEC.median_program_millions)); setStat('big_ten_median', money(byName['Big Ten'].median_program_millions)); setStat('big12_median', money(byName['Big 12'].median_program_millions)); setStat('acc_median', money(byName.ACC.median_program_millions)); setStat('sec_edge', percent(100 * (byName.SEC.market_millions / byName['Big Ten'].market_millions - 1)));
+  setStat('disclosure_avg_2024', dollars(all2024.average_disclosure_value)); setStat('disclosure_avg_2025', dollars(all2025.average_disclosure_value)); setStat('disclosure_avg_change', percent(100 * (all2025.average_disclosure_value / all2024.average_disclosure_value - 1))); setStat('disclosure_median_2024', dollars(all2024.median_disclosure_value)); setStat('disclosure_median_2025', dollars(all2025.median_disclosure_value));
+  const p4Segment = segments.find((row) => row.group === 'Power 4'); setStat('p4_disclosure_share', percent(100 * p4Segment.disclosure_count / all2025.disclosure_count)); setStat('p4_disclosure_average', dollars(p4Segment.average_disclosure_value)); setStat('all_disclosure_average', dollars(all2025.average_disclosure_value)); setStat('p4_disclosure_median', dollars(p4Segment.median_disclosure_value));
 
   barChart(document.querySelector('#conferenceChart'), p4.map((row) => ({ label: row.conference, value: row.market_millions, color: row.conference === 'SEC' ? '#1769d5' : '#8f70c9' })), { max: 900, valueFormat: money, left: 150, rowHeight: 46 });
   barChart(document.querySelector('#fullRankingChart'), conferences.slice(0, 12).map((row) => ({ label: row.conference, value: row.market_millions, color: row.tier === 'Power 4' ? '#1769d5' : row.tier === 'Group of 5' ? '#e0ab38' : '#8f70c9' })), { max: 900, valueFormat: money, left: 165, rowHeight: 32 });
@@ -78,9 +90,12 @@ function render(data) {
   const positions = data.fbs_position_context.groups;
   barChart(document.querySelector('#positionMarketChart'), positions.map((row) => ({ label: row.position, value: 100 * row.modeled_market_millions / data.fbs_position_context.market_millions, color: row.position === 'Quarterback' ? '#1769d5' : row.position === 'Wide receiver' ? '#f26b5e' : '#8f70c9' })), { max: 22, valueFormat: percent, left: 165, rowHeight: 30 });
   barChart(document.querySelector('#positionMedianChart'), [...positions].sort((a, b) => b.median_thousands - a.median_thousands).map((row) => ({ label: row.position, value: row.median_thousands, color: row.position === 'Quarterback' ? '#1769d5' : '#e0ab38' })), { max: 650, valueFormat: (value) => `$${Math.round(value)}K`, left: 165, rowHeight: 30 });
+  groupedBarChart(document.querySelector('#disclosureTrendChart'), [all2024, all2025].map((row) => ({ label: String(row.year), average: row.average_disclosure_value, median: row.median_disclosure_value })), [{ key: 'average', color: '#1769d5' }, { key: 'median', color: '#f26b5e' }], { max: 4500, valueFormat: dollars, left: 105, rowHeight: 65 });
+  renderSegmentChart(document.querySelector('#segmentChart'), segments);
 }
 
-const reportDataUrl = new URL('data/division1_market.json', document.currentScript.src);
+const reportDataUrl = new URL('data/division1_market.json', document.currentScript.src); const historyUrl = new URL('data/nil_summary.json', document.currentScript.src);
 const reportData = window.NIL_DATA ? Promise.resolve(window.NIL_DATA) : fetch(reportDataUrl).then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); });
-reportData.then(render).catch((error) => { document.querySelectorAll('.chart-wrap').forEach((node) => { node.innerHTML = `<div class="chart-empty">Could not load the D-I market snapshot: ${error.message}</div>`; }); });
+const historyData = window.NIL_HISTORY ? Promise.resolve(window.NIL_HISTORY) : fetch(historyUrl).then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then((raw) => ({ trend: [{ year: 2024, group: 'All public disclosures', ...raw.comparison_snapshot_2024 }, { year: 2025, group: 'All public disclosures', disclosure_count: raw.overall.disclosure_count, average_disclosure_value: raw.overall.average_disclosure_value, median_disclosure_value: raw.overall.median_disclosure_value, average_total_athlete_earnings: raw.overall.average_total_athlete_earnings, median_total_athlete_earnings: raw.overall.median_total_athlete_earnings }], segments: raw.segments }));
+Promise.all([reportData, historyData]).then(([data, history]) => render(data, history)).catch((error) => { document.querySelectorAll('.chart-wrap').forEach((node) => { node.innerHTML = `<div class="chart-empty">Could not load the report data: ${error.message}</div>`; }); });
 })();
