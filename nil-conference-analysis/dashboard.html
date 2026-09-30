@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive Division I NIL conference comparison using modeled roster-market estimates.">
+  <meta http-equiv="refresh" content="0; url=index.html#interactive">
+  <title>The D-I NIL Map — dashboard</title>
+  <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body class="fun-dashboard">
+  <nav class="site-nav">
+    <a class="brand" href="index.html"><span class="brand-mark">N</span><span>The D-I NIL Map</span></a>
+    <div class="nav-links"><a href="index.html">Report</a><a class="active" href="dashboard.html">Dashboard</a><a href="index.html#methodology">Method</a><span class="nav-pill">Division I · 2026 estimates</span></div>
+  </nav>
+
+  <main class="dashboard-main">
+    <section class="dashboard-hero"><p class="eyebrow">Interactive Division I comparison</p><h1>Put the conferences side by side.</h1><p>Choose a measure, switch between the full conference ranking and tier groups, and inspect how the Power 4 market divides across sports. The controls use one consistent 2026 estimate snapshot.</p><div class="button-row"><a class="button" href="#playerBuilder">Build a player profile <span aria-hidden="true">↓</span></a></div></section>
+
+    <section class="player-builder" id="playerBuilder" aria-labelledby="builderTitle">
+      <div class="builder-intro"><p class="eyebrow">Build your player profile</p><h2 id="builderTitle">Pick a sport, position, and conference.</h2><p>Start with a modeled baseline, then see how the selected conference changes the estimate. Think of this as an interactive market-value scenario—not a paycheck calculator.</p><div class="builder-balls" aria-hidden="true"><span class="ball football-ball">🏈</span><span class="ball basketball-ball">🏀</span><span class="ball baseball-ball">⚾</span><span class="ball volleyball-ball">🏐</span></div></div>
+      <div class="builder-controls">
+        <div class="builder-control"><label for="builderSport">Sport</label><select id="builderSport"></select></div>
+        <div class="builder-control"><label for="builderPosition">Starting position</label><select id="builderPosition"></select></div>
+        <div class="builder-control"><label for="builderConference">Conference</label><select id="builderConference"></select></div>
+        <div class="builder-note"><span class="starter-chip">STARTER MODE</span><p id="builderSourceNote">—</p></div>
+      </div>
+      <div class="builder-result" id="builderResult">
+        <div class="result-ball" id="builderBall" aria-hidden="true">🏈</div>
+        <div class="result-copy"><span class="result-kicker">Estimated starting-player market value</span><strong id="builderValue">—</strong><span id="builderSelection">—</span></div>
+        <div class="result-math"><span>Baseline</span><strong id="builderBaseline">—</strong><span>Conference lift</span><strong id="builderMultiplier">—</strong><span>Model scope</span><strong id="builderScope">—</strong></div>
+      </div>
+      <p class="builder-disclaimer">The calculator is intentionally transparent: football uses published modeled position medians; other sports use illustrative baselines so the interaction can compare roles consistently. It does not predict a guaranteed NIL deal or salary.</p>
+    </section>
+
+    <section class="control-panel" aria-label="Dashboard controls">
+      <div class="control"><label for="measureSelect">Measure</label><select id="measureSelect"><option value="market_millions">Combined roster market</option><option value="median_program_millions">Median program estimate</option><option value="market_share">Share of D-I market</option><option value="programs">Programs</option><option value="leader_millions">Largest program estimate</option></select></div>
+      <div class="control"><label for="breakdownSelect">Break down by</label><select id="breakdownSelect"><option value="conference">Conference</option><option value="tier">D-I tier</option><option value="sport">Power 4 sport mix</option></select></div>
+      <div class="control"><label for="scopeSelect">Focus set</label><select id="scopeSelect"><option value="p4">Power 4</option><option value="all">All 32 D-I conferences</option><option value="g5">Group of 5</option><option value="fcs">FCS</option><option value="no_football">No football</option></select></div>
+      <button class="button secondary control-reset" id="resetButton" type="button">Reset view</button>
+    </section>
+
+    <section class="dashboard-kpis" aria-label="Current figures">
+      <article class="kpi-card"><span class="kpi-label" id="kpiMetricLabel">Combined roster market</span><strong id="kpiMetricValue">—</strong></article>
+      <article class="kpi-card"><span class="kpi-label">Market in selected set</span><strong id="kpiMarket">—</strong></article>
+      <article class="kpi-card"><span class="kpi-label">Share of D-I market</span><strong id="kpiShare">—</strong></article>
+      <article class="kpi-card"><span class="kpi-label">Selected view</span><strong id="kpiScope">Power 4</strong></article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="dashboard-card wide"><div class="chart-title"><strong id="mainChartTitle">Combined roster market by conference</strong><span>2026 D-I estimate</span></div><div class="chart-wrap dashboard-chart" id="mainChart"></div><p class="chart-note" id="chartNote"></p></article>
+      <article class="dashboard-card"><div class="chart-title"><strong>How to read the model</strong><span>before comparing</span></div><div class="explain-card"><div><span class="explain-number">01</span><strong>Same universe</strong><p>Every conference row comes from the same Division I directory and valuation framework.</p></div><div><span class="explain-number">02</span><strong>Total is not typical</strong><p>A large conference can rank high partly because it has more programs. Check median program value too.</p></div><div><span class="explain-number">03</span><strong>Estimate is not contract</strong><p>These figures are modeled roster-market estimates, not verified compensation or conference payouts.</p></div></div></article>
+      <article class="dashboard-card"><div class="chart-title"><strong>Useful comparison questions</strong><span>three lenses</span></div><div class="explain-card"><div><span class="explain-number">A</span><strong>Who has the biggest total?</strong><p>Use combined market to compare the size of each conference’s modeled market.</p></div><div><span class="explain-number">B</span><strong>Who has more depth?</strong><p>Use median program value to reduce the influence of one unusually large program.</p></div><div><span class="explain-number">C</span><strong>What drives it?</strong><p>Use sport mix to see how much of the Power 4 model sits in football, basketball, baseball, and other sports.</p></div></div></article>
+      <article class="dashboard-card wide"><div class="chart-title"><strong>Position-group lens: FBS football only</strong><span>separate from the all-sports D-I view</span></div><div class="chart-wrap dashboard-chart" id="positionChart"></div><p class="chart-note">This secondary model covers FBS football players, not every Division I athlete. It estimates market value rather than reporting actual pay.</p><div class="table-wrap position-table-wrap"><table><thead id="positionHead"></thead><tbody id="positionTable"></tbody></table></div></article>
+      <article class="dashboard-card wide school-explorer" id="schoolExplorer"><div class="chart-title"><strong>Power 4 school showdown</strong><span>click a school sticker</span></div><p class="school-intro">The source lists every Power 4 program. Filter a conference, sort the board, and tap a school to see how much of its conference’s modeled market it represents.</p><div class="school-toolbar"><div class="control"><label for="schoolConference">Conference</label><select id="schoolConference"><option value="all">All Power 4 schools</option><option value="SEC">SEC</option><option value="Big Ten">Big Ten</option><option value="ACC">ACC</option><option value="Big 12">Big 12</option></select></div><div class="control"><label for="schoolSort">Sort stickers by</label><select id="schoolSort"><option value="market">Biggest market</option><option value="share">Share of conference</option><option value="alphabetical">A–Z</option></select></div><button class="button fun-button" id="surpriseSchool" type="button">Pick a surprise ✨</button></div><div class="school-cloud" id="schoolCloud"></div><div class="school-detail" id="schoolDetail"></div></article>
+      <article class="dashboard-card wide"><div class="chart-title"><strong>Rows behind the view</strong><span id="tableNote">—</span></div><div class="table-wrap"><table><thead id="dataHead"></thead><tbody id="dataTable"></tbody></table></div></article>
+    </section>
+  </main>
+  <footer class="footer">Return to the <a href="index.html">narrative report</a> or read the <a href="index.html#methodology">methodology</a>.</footer>
+  <script src="data/nil_data.js?v=6"></script>
+  <script src="dashboard.js?v=6"></script>
+</body>
+</html>

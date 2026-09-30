@@ -1,0 +1,85 @@
+{
+  "project": "The NIL Divide",
+  "snapshot": {
+    "date_range": "Jan 1, 2025 - Jul 31, 2025",
+    "captured": "2026-09-30",
+    "source": "NCAA NIL Assist public Data Dashboard",
+    "source_url": "https://nilassist.ncaa.org/data-dashboard/",
+    "report_id": "9ef6e8da-b760-43f9-a43b-9bfbc963824c",
+    "note": "Public, de-identified dashboard snapshot. Values can change as disclosures are added or revised."
+  },
+  "overall": {
+    "disclosure_count": 158156,
+    "average_disclosure_value": 4141,
+    "median_disclosure_value": 46,
+    "average_total_athlete_earnings": 21075,
+    "median_total_athlete_earnings": 703
+  },
+  "segments": [
+    {
+      "segment": "P4",
+      "label": "FBS-Autonomy (P4)",
+      "disclosure_count": 95463,
+      "average_disclosure_value": 6464,
+      "median_disclosure_value": 55,
+      "average_total_athlete_earnings": 29837,
+      "median_total_athlete_earnings": 1033,
+      "deal_ranges": [58026, 10052, 16137, 3525, 7723]
+    },
+    {
+      "segment": "G5",
+      "label": "FBS-Non-Autonomy (G5)",
+      "disclosure_count": 39913,
+      "average_disclosure_value": 625,
+      "median_disclosure_value": 32,
+      "average_total_athlete_earnings": 10139,
+      "median_total_athlete_earnings": 210,
+      "deal_ranges": [26998, 5855, 6237, 496, 327]
+    },
+    {
+      "segment": "FCS",
+      "label": "FCS & D1 No Football",
+      "disclosure_count": 22780,
+      "average_disclosure_value": 566,
+      "median_disclosure_value": 36,
+      "average_total_athlete_earnings": 3078,
+      "median_total_athlete_earnings": 237,
+      "deal_ranges": [15125, 5585, 1296, 489, 285]
+    }
+  ],
+  "deal_range_labels": ["$0–100", "$100–1,000", "$1,000–5,000", "$5,000–10,000", "$10,000+"],
+  "overall_deal_ranges": [100149, 21492, 23670, 4510, 8335],
+  "sports": [
+    {"sport": "Football", "count": 62776, "group": "Men's / mixed"},
+    {"sport": "Basketball (Mens)", "count": 15528, "group": "Men's / mixed"},
+    {"sport": "Baseball", "count": 15479, "group": "Men's / mixed"},
+    {"sport": "Basketball (Womens)", "count": 10374, "group": "Women's"},
+    {"sport": "Softball", "count": 8817, "group": "Women's"},
+    {"sport": "Soccer (Womens)", "count": 7191, "group": "Women's"},
+    {"sport": "Volleyball (Womens)", "count": 6528, "group": "Women's"},
+    {"sport": "Lacrosse (Womens)", "count": 3667, "group": "Women's"},
+    {"sport": "Track and Field", "count": 3285, "group": "Mixed / unclear"},
+    {"sport": "Soccer (Mens)", "count": 2293, "group": "Men's / mixed"},
+    {"sport": "Gymnastics (Womens)", "count": 2276, "group": "Women's"},
+    {"sport": "Others", "count": 19942, "group": "Mixed / unclear"}
+  ],
+  "segment_sports": {
+    "P4": [
+      {"sport": "Football", "count": 39304}, {"sport": "Baseball", "count": 10149}, {"sport": "Basketball (Mens)", "count": 8448}, {"sport": "Softball", "count": 5726}, {"sport": "Basketball (Womens)", "count": 5479}, {"sport": "Soccer (Womens)", "count": 4015}, {"sport": "Volleyball (Womens)", "count": 3694}, {"sport": "Lacrosse (Womens)", "count": 2371}, {"sport": "Wrestling (Mens)", "count": 1994}, {"sport": "Track and Field", "count": 1940}, {"sport": "Gymnastics (Womens)", "count": 1608}, {"sport": "Others", "count": 10735}
+    ],
+    "G5": [
+      {"sport": "Football", "count": 17075}, {"sport": "Basketball (Mens)", "count": 4052}, {"sport": "Baseball", "count": 3415}, {"sport": "Basketball (Womens)", "count": 2689}, {"sport": "Soccer (Womens)", "count": 2001}, {"sport": "Volleyball (Womens)", "count": 1683}, {"sport": "Softball", "count": 1614}, {"sport": "Track and Field (Mens)", "count": 1242}, {"sport": "Lacrosse (Womens)", "count": 1079}, {"sport": "Track and Field", "count": 746}, {"sport": "Soccer (Mens)", "count": 615}, {"sport": "Others", "count": 3702}
+    ],
+    "FCS": [
+      {"sport": "Football", "count": 6397}, {"sport": "Basketball (Mens)", "count": 3028}, {"sport": "Basketball (Womens)", "count": 2206}, {"sport": "Baseball", "count": 1915}, {"sport": "Softball", "count": 1477}, {"sport": "Soccer (Womens)", "count": 1175}, {"sport": "Volleyball (Womens)", "count": 1151}, {"sport": "Ice Hockey (Mens)", "count": 778}, {"sport": "Track and Field", "count": 599}, {"sport": "Track and Field (Mens)", "count": 392}, {"sport": "Soccer (Mens)", "count": 362}, {"sport": "Others", "count": 3300}
+    ]
+  },
+  "comparison_snapshot_2024": {
+    "date_range": "Jan 1, 2024 - Oct 31, 2024",
+    "average_disclosure_value": 2296,
+    "median_disclosure_value": 60,
+    "average_total_athlete_earnings": 22628,
+    "median_total_athlete_earnings": 548,
+    "deal_range_shares": [57, 15, 7, 13, 3, 3, 1]
+  }
+}
